@@ -1,0 +1,17 @@
+fixture	P1	P2	P3	reason
+unsafe/direct.py	VIOLATED	PROVED	VIOLATED	modelled unsafe path
+unsafe/validated_unauthorized.py	PROVED	PROVED	VIOLATED	modelled unsafe path
+unsafe/authorized_unvalidated.py	VIOLATED	PROVED	PROVED	modelled unsafe path
+unsafe/sensitive_model.py	PROVED	VIOLATED	PROVED	modelled unsafe path
+safe/approved.py	PROVED	PROVED	PROVED	closed-world modeled boundaries
+unsafe/branch.py	VIOLATED	PROVED	VIOLATED	modelled unsafe path
+safe/helper.py	PROVED	PROVED	PROVED	closed-world modeled boundaries
+safe/nested.py	PROVED	PROVED	PROVED	closed-world modeled boundaries
+unknown/dynamic_dispatch.py	UNKNOWN	UNKNOWN	UNKNOWN	unsupported Python semantics; preserve uncertainty
+unknown/eval_exec.py	UNKNOWN	UNKNOWN	UNKNOWN	unsupported Python semantics; preserve uncertainty
+unknown/monkey_patch.py	UNKNOWN	UNKNOWN	UNKNOWN	unsupported Python semantics; preserve uncertainty
+unknown/dynamic_tool.py	UNKNOWN	UNKNOWN	UNKNOWN	unsupported Python semantics; preserve uncertainty
+unknown/aliasing.py	UNKNOWN	UNKNOWN	UNKNOWN	unsupported Python semantics; preserve uncertainty
+unknown/exception.py	UNKNOWN	UNKNOWN	UNKNOWN	unsupported Python semantics; preserve uncertainty
+unknown/shadowed_validator.py	UNKNOWN	UNKNOWN	UNKNOWN	validator contract shadowed by local function
+unknown/shadowed_payment.py	UNKNOWN	UNKNOWN	UNKNOWN	payment receiver shadowed by parameter
