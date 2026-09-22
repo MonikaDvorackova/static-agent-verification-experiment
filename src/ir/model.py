@@ -1,6 +1,18 @@
 from __future__ import annotations
 import ast
 from dataclasses import dataclass, field
+from enum import Enum
+
+
+class Trust(str, Enum):
+    TRUSTED = 'Trusted'
+    UNTRUSTED = 'Untrusted'
+    UNKNOWN = 'Unknown'
+
+
+class Sensitivity(str, Enum):
+    PUBLIC = 'Public'
+    SENSITIVE = 'Sensitive'
 
 @dataclass(frozen=True)
 class Instruction:
@@ -23,11 +35,24 @@ class Value:
     approved: bool = False
     unknown: bool = False
     effects: frozenset[str] = frozenset()
+    approval_id: int | None = None
+
+    @property
+    def trust(self) -> Trust:
+        if self.unknown:
+            return Trust.UNKNOWN
+        return (Trust.UNTRUSTED if self.origins & {'LLM', 'external', 'user'}
+                else Trust.TRUSTED)
+
+    @property
+    def sensitivity(self) -> Sensitivity:
+        return Sensitivity.SENSITIVE if self.sensitive else Sensitivity.PUBLIC
 
     def combine(self, other: Value) -> Value:
         return Value(self.origins | other.origins, self.sensitive or other.sensitive,
                      self.validated and other.validated, self.approved and other.approved,
-                     self.unknown or other.unknown, self.effects | other.effects)
+                     self.unknown or other.unknown, self.effects | other.effects,
+                     self.approval_id if self.approval_id == other.approval_id else None)
 
 @dataclass
 class State:
@@ -36,7 +61,8 @@ class State:
     uncertainty: list[str] = field(default_factory=list)
     findings: list[tuple[str, str]] = field(default_factory=list)
     returned: Value | None = None
+    consumed_approvals: set[int] = field(default_factory=set)
 
     def copy(self) -> State:
         return State(self.env.copy(), self.aliases.copy(), self.uncertainty.copy(),
-                     self.findings.copy(), self.returned)
+                     self.findings.copy(), self.returned, self.consumed_approvals.copy())

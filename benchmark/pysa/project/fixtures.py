@@ -22,3 +22,14 @@ def sensitive() -> None:
 
 def authorized_unvalidated(request: str) -> None:
     payment_execute(human_approve(llm(request)))
+
+def approved_other_payload(request: str) -> None:
+    human_approve(llm(request))
+    payment_execute(llm(request))
+
+def constant_action() -> None:
+    payment_execute("fixed payment")
+
+def modified_after_approval(request: str) -> None:
+    approved = human_approve(llm(request))
+    payment_execute(approved + " changed")

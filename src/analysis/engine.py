@@ -1,6 +1,5 @@
 from __future__ import annotations
 import ast
-from pathlib import Path
 from src.ir.model import Program, State, Value
 from src.parser.python import parse, name
 from src.policies.contracts import SINKS, SOURCES, BOUNDARIES
@@ -20,9 +19,13 @@ class Analyzer:
             return Value()
         if isinstance(node, ast.Name):
             return state.env.get(node.id, Value(unknown=True))
-        if isinstance(node, (ast.Tuple, ast.List, ast.Set, ast.JoinedStr, ast.Dict, ast.BinOp, ast.UnaryOp, ast.Compare, ast.Subscript)):
+        if isinstance(node, (ast.Tuple, ast.List, ast.Set, ast.Dict, ast.BinOp,
+                             ast.UnaryOp, ast.Compare, ast.Subscript, ast.JoinedStr)):
             children = [c for c in ast.iter_child_nodes(node) if isinstance(c, ast.expr)]
             values = [self.expression(c, state, stack) for c in children]
+            if isinstance(node, (ast.BinOp, ast.UnaryOp, ast.Compare, ast.Subscript,
+                                 ast.JoinedStr)) and any(not isinstance(c, ast.Constant) for c in children):
+                state.uncertainty.append(self.reason(node, f'overloaded Python operation: {type(node).__name__}'))
             combined = values[0] if values else Value()
             for v in values[1:]:
                 combined = combined.combine(v)
@@ -56,8 +59,9 @@ class Analyzer:
                 return Value(data.origins, data.sensitive, unknown=True)
             return Value(data.origins, data.sensitive,
                          data.validated or BOUNDARIES[target] == 'validation',
-                         data.approved or BOUNDARIES[target] == 'authorization', data.unknown,
-                         data.effects | ({'HUMAN_APPROVAL'} if target == 'human_approve' else set()))
+                         BOUNDARIES[target] == 'authorization', data.unknown,
+                         data.effects | ({'HUMAN_APPROVAL'} if target == 'human_approve' else set()),
+                         id(node) if BOUNDARIES[target] == 'authorization' else None)
         if target in SINKS:
             if not args:
                 state.uncertainty.append(self.reason(node, f'{target} has no modeled payload'))
@@ -69,6 +73,13 @@ class Analyzer:
                         state.findings.append((prop, self.reason(node, f'sensitive data reaches unauthorized {target}')))
                     if prop == 'P3' and not data.approved:
                         state.findings.append((prop, self.reason(node, f'critical action {target} lacks payload-bound authorization')))
+                if 'P3' in SINKS[target] and data.approved:
+                    if data.approval_id is None:
+                        state.uncertainty.append(self.reason(node, 'approval identity lost during data combination'))
+                    elif data.approval_id in state.consumed_approvals:
+                        state.uncertainty.append(self.reason(node, 'authorization result reused for another critical action'))
+                    else:
+                        state.consumed_approvals.add(data.approval_id)
                 if data.unknown:
                     state.uncertainty.append(self.reason(node, f'unknown payload at {target}'))
             return Value(effects=data.effects | {'EXTERNAL_WRITE'})
@@ -86,6 +97,7 @@ class Analyzer:
                 state.findings.extend(path.findings)
                 state.uncertainty.extend(path.uncertainty)
             if len(paths) == 1 and paths[0].returned is not None:
+                state.consumed_approvals.update(paths[0].consumed_approvals)
                 return paths[0].returned
             state.uncertainty.append(self.reason(node, f'return paths unresolved: {target}'))
             return Value(unknown=True)
@@ -120,9 +132,15 @@ class Analyzer:
                     state.returned = self.expression(stmt.value, state, stack) if stmt.value else Value()
                     next_states.append(state)
                 elif isinstance(stmt, ast.If):
-                    self.expression(stmt.test, state, stack)
-                    next_states.extend(self.block(stmt.body, [state.copy()], stack))
-                    next_states.extend(self.block(stmt.orelse, [state.copy()], stack))
+                    condition = self.expression(stmt.test, state, stack)
+                    if not isinstance(stmt.test, ast.Constant):
+                        # __bool__/__len__ may execute arbitrary Python; a tainted
+                        # condition can also leak through control dependence.
+                        state.uncertainty.append(self.reason(stmt.test, 'dynamic truthiness or implicit control flow'))
+                    if not isinstance(stmt.test, ast.Constant) or bool(stmt.test.value):
+                        next_states.extend(self.block(stmt.body, [state.copy()], stack))
+                    if not isinstance(stmt.test, ast.Constant) or not bool(stmt.test.value):
+                        next_states.extend(self.block(stmt.orelse, [state.copy()], stack))
                 elif isinstance(stmt, ast.Pass):
                     next_states.append(state)
                 else:
@@ -139,6 +157,12 @@ class Analyzer:
         global_uncertainty: list[str] = []
         for stmt in self.program.tree.body:
             if isinstance(stmt, ast.FunctionDef):
+                if stmt.args.defaults or any(x is not None for x in stmt.args.kw_defaults):
+                    global_uncertainty.append(self.reason(stmt, f'function default expression at definition time: {stmt.name}'))
+                annotations = [a.annotation for a in (*stmt.args.posonlyargs, *stmt.args.args,
+                               *stmt.args.kwonlyargs) if a.annotation is not None]
+                if stmt.returns is not None or annotations:
+                    global_uncertainty.append(self.reason(stmt, f'runtime annotation semantics not modeled: {stmt.name}'))
                 if stmt.name in CONTRACT_ROOTS or any(a.arg in CONTRACT_ROOTS for a in stmt.args.args):
                     global_uncertainty.append(self.reason(stmt, f'contract name shadowed in {stmt.name}'))
                 for nested in ast.walk(stmt):

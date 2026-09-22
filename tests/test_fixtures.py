@@ -18,5 +18,17 @@ class FixtureTests(unittest.TestCase):
                         if result.status != 'PROVED':
                             self.assertTrue(result.reasons)
 
+    def test_unknown_reasons_and_determinism(self):
+        for fixture, fragment in (
+            ('unknown/implicit_flow.py', 'dynamic truthiness'),
+            ('unknown/approval_reuse.py', 'authorization result reused'),
+            ('unknown/function_default.py', 'function default expression'),
+        ):
+            with self.subTest(fixture):
+                source = (ROOT / fixture).read_text()
+                first = analyze(source, fixture)
+                self.assertEqual(first, analyze(source, fixture))
+                self.assertTrue(any(fragment in reason for result in first for reason in result.reasons))
+
 if __name__ == '__main__':
     unittest.main()

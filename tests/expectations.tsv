@@ -4,7 +4,7 @@ unsafe/validated_unauthorized.py	PROVED	PROVED	VIOLATED	modelled unsafe path
 unsafe/authorized_unvalidated.py	VIOLATED	PROVED	PROVED	modelled unsafe path
 unsafe/sensitive_model.py	PROVED	VIOLATED	PROVED	modelled unsafe path
 safe/approved.py	PROVED	PROVED	PROVED	closed-world modeled boundaries
-unsafe/branch.py	VIOLATED	PROVED	VIOLATED	modelled unsafe path
+unknown/branch.py	UNKNOWN	UNKNOWN	UNKNOWN	dynamic truthiness may execute effects and implicit flow
 safe/helper.py	PROVED	PROVED	PROVED	closed-world modeled boundaries
 safe/nested.py	PROVED	PROVED	PROVED	closed-world modeled boundaries
 unknown/dynamic_dispatch.py	UNKNOWN	UNKNOWN	UNKNOWN	unsupported Python semantics; preserve uncertainty
@@ -15,3 +15,11 @@ unknown/aliasing.py	UNKNOWN	UNKNOWN	UNKNOWN	unsupported Python semantics; preser
 unknown/exception.py	UNKNOWN	UNKNOWN	UNKNOWN	unsupported Python semantics; preserve uncertainty
 unknown/shadowed_validator.py	UNKNOWN	UNKNOWN	UNKNOWN	validator contract shadowed by local function
 unknown/shadowed_payment.py	UNKNOWN	UNKNOWN	UNKNOWN	payment receiver shadowed by parameter
+unknown/implicit_flow.py	UNKNOWN	UNKNOWN	UNKNOWN	secret-dependent control flow
+unknown/overloaded_operator.py	UNKNOWN	UNKNOWN	UNKNOWN	user-defined operator may execute effects
+unknown/function_default.py	UNKNOWN	UNKNOWN	UNKNOWN	definition-time default may execute effect
+safe/unreachable_branch.py	PROVED	PROVED	PROVED	constant false branch unreachable under contracts
+unsafe/validate_after_approval.py	PROVED	PROVED	VIOLATED	validation can change payload after approval
+unknown/approval_reuse.py	UNKNOWN	UNKNOWN	UNKNOWN	one approval result used for two actions
+unsafe/constant_action.py	PROVED	PROVED	VIOLATED	constant critical action still requires approval
+unknown/modified_after_approval.py	UNKNOWN	UNKNOWN	UNKNOWN	overloaded concatenation and modified payload

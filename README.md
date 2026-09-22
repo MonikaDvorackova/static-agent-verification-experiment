@@ -18,10 +18,10 @@ The deliberately narrow API model recognizes `llm`, `external_read`, `user_input
 - `src/analysis/`: path traversal, calls, labels and decisions.
 - `src/policies/`: modeled API contracts.
 - `src/diagnostics/`: result records.
-- `tests/safe`, `tests/unsafe`, `tests/unknown`: sixteen documented adversarial fixtures; `tests/expectations.tsv` gives per-property outcomes.
+- `tests/safe`, `tests/unsafe`, `tests/unknown`: twenty-four documented adversarial fixtures; `tests/expectations.tsv` gives per-property outcomes.
 
-A five-function Pysa comparison with reproducible models is in `benchmark/pysa/` and `docs/BASELINE_COMPARISON.md`. It shows that existing static taint analysis already captures the elementary P1/P2 cases. P3 was not benchmarked against Pysa.
+An eight-function Pysa comparison with reproducible models is in `benchmark/pysa/` and `docs/BASELINE_COMPARISON.md`. It covers P1/P2 and a partial P3 approximation. Three unmodified public agent examples are analyzed in `docs/PUBLIC_CODE_EXPERIMENT.md` (all UNKNOWN). `docs/P3_COMPARISON.md` explains the static/runtime authorization boundary.
 
 ## Important qualifications
 
-Branches are conservatively both feasible; exception handling is UNKNOWN. Arbitrary imports, decorators, globals, reflection, mutation, callbacks, dynamic calls, Python descriptors, async and loops are not analyzed soundly. The IR records effects, but no complete effect inference or separate graph algorithm exists yet. A named `validate`/`human_approve` is a stipulated trusted primitive, not verified Python code. Results are research hypotheses conditional on a sealed environment. The comparison in `docs/RELATED_WORK.md` finds no demonstrated need yet for a new language; benchmark this subset against established tools before expanding it.
+Nonconstant branch tests are UNKNOWN because Python truth testing can execute code and may reveal information through control flow; constant branches are followed precisely. Exception handling is UNKNOWN. Arbitrary imports, decorators, globals, reflection, mutation, callbacks, dynamic calls, Python descriptors, async and loops are not analyzed soundly. The IR records effects, but no complete effect inference or separate graph algorithm exists yet. A named `validate`/`human_approve` is a stipulated trusted primitive, not verified Python code. Results are research hypotheses conditional on a sealed environment. The comparison in `docs/RELATED_WORK.md` finds no demonstrated need yet for a new language; the present baseline is too small to support performance or whole-program claims.
