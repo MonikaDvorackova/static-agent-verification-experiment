@@ -1,0 +1,4 @@
+case	P1	P2	P3	manual_observation_and_premise
+openkb	VIOLATED_IF_MODEL_ARGUMENT_UNTRUSTED	UNKNOWN	UNKNOWN	Registered nested write_file takes model-supplied content; path-restricted helper writes through atomic_write_text; no content validation modeled; path allow-list limits destinations.
+copane	VIOLATED_IF_MODEL_ARGUMENT_UNTRUSTED	UNKNOWN	UNKNOWN	Registered async write_file writes content with f.write; needs_approval=True gates the SDK invocation under SDK semantics; secondary traceable decorator and runtime policy are not proved.
+based_agent	VIOLATED_IF_MODEL_ARGUMENT_UNTRUSTED	UNKNOWN	UNKNOWN	Registered async write_file schedules _write_file via asyncio.to_thread; helper writes with fh.write; workspace-root path restriction limits destinations; no SDK approval literal observed.

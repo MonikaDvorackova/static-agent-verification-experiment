@@ -26,6 +26,8 @@ An eight-function Pysa comparison with reproducible models is in `benchmark/pysa
 
 `docs/REAL_WORLD_CODEQL_EXPERIMENT.md` reports a separately pinned OpenKB source inspection and an actually executed narrow CodeQL query for one agent-tool-to-file-write flow. The external code is not bundled. Both variants of our analyzer return UNKNOWN on the unchanged project; the CodeQL result is a possible flow warning, not a security verdict.
 
+`docs/MULTI_PROJECT_BENCHMARK.md` extends the selected-path evaluation to three pinned public agent projects. Our analyzer and SDK adapter return UNKNOWN on all three unchanged modules; narrow CodeQL queries find two direct file-write flows and one scheduling edge. The manual labels are conditional and not independent ground truth; no production safety claim or real-world Pysa accuracy estimate follows.
+
 For a stronger *modeled* P3 contract, `human_approve_action('payment.execute', validated_value)` binds the approval value to a literal sink name. Using it at another sink produces `VIOLATED`; a computed target produces `UNKNOWN`. This only works under the sealed-contract assumption and does not verify that a human saw the concrete arguments.
 
 ## Important qualifications

@@ -1,0 +1,65 @@
+{
+  "cli_version": "2.27.1",
+  "library_revision": "03cccfe9a77c67c349d1ec557c9959b0ab5cd739",
+  "cases": [
+    {
+      "case": "openkb",
+      "revision": "ff54396e575ee6feb0113b631a34caa082b441cc",
+      "direct_query": [
+        {
+          "source": {
+            "file": "openkb/agent/query.py",
+            "line": 237
+          },
+          "sink": {
+            "file": "openkb/locks.py",
+            "line": 232
+          }
+        },
+        {
+          "source": {
+            "file": "openkb/agent/query.py",
+            "line": 237
+          },
+          "sink": {
+            "file": "openkb/agent/query.py",
+            "line": 251
+          }
+        }
+      ]
+    },
+    {
+      "case": "copane",
+      "revision": "e8392bb0730dee2f688acccff24fa0ba8f3ede29",
+      "direct_query": [
+        {
+          "source": {
+            "file": "python/src/copane/tools/write_file.py",
+            "line": 25
+          },
+          "sink": {
+            "file": "python/src/copane/tools/write_file.py",
+            "line": 41
+          }
+        }
+      ]
+    },
+    {
+      "case": "based_agent",
+      "revision": "9bbf71fc70dd266e1d67e5be697eea2e84b4cdf2",
+      "direct_query": [],
+      "thread_scheduling_query": [
+        {
+          "source": {
+            "file": "src/tools/write_file_tool.py",
+            "line": 42
+          },
+          "sink": {
+            "file": "src/tools/write_file_tool.py",
+            "line": 72
+          }
+        }
+      ]
+    }
+  ]
+}

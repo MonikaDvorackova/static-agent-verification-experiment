@@ -1,0 +1,109 @@
+{
+  "cases": [
+    {
+      "case": "openkb",
+      "repository": "VectifyAI/OpenKB",
+      "revision": "ff54396e575ee6feb0113b631a34caa082b441cc",
+      "file": "openkb/agent/query.py",
+      "sha256": "cec427a29b0e9eeaf803fda2de79767ec35143e369fb2086df5f35901b7b048b",
+      "original": {
+        "P1": {
+          "status": "UNKNOWN",
+          "reason": "openkb/agent/query.py: no @agent entry point"
+        },
+        "P2": {
+          "status": "UNKNOWN",
+          "reason": "openkb/agent/query.py: no @agent entry point"
+        },
+        "P3": {
+          "status": "UNKNOWN",
+          "reason": "openkb/agent/query.py: no @agent entry point"
+        }
+      },
+      "sdk_adapter": {
+        "P1": {
+          "status": "UNKNOWN",
+          "reason": "openkb/agent/query.py: SDK profile requires one import, tool definition and registration"
+        },
+        "P2": {
+          "status": "UNKNOWN",
+          "reason": "openkb/agent/query.py: SDK profile requires one import, tool definition and registration"
+        },
+        "P3": {
+          "status": "UNKNOWN",
+          "reason": "openkb/agent/query.py: SDK profile requires one import, tool definition and registration"
+        }
+      }
+    },
+    {
+      "case": "copane",
+      "repository": "MostafaKashwaa/copane",
+      "revision": "e8392bb0730dee2f688acccff24fa0ba8f3ede29",
+      "file": "python/src/copane/tools/write_file.py",
+      "sha256": "b2a49bd64d18fadaa49bb27f977dc73798e6fe4c82014702e2d9392c1c600900",
+      "original": {
+        "P1": {
+          "status": "UNKNOWN",
+          "reason": "python/src/copane/tools/write_file.py: no @agent entry point"
+        },
+        "P2": {
+          "status": "UNKNOWN",
+          "reason": "python/src/copane/tools/write_file.py: no @agent entry point"
+        },
+        "P3": {
+          "status": "UNKNOWN",
+          "reason": "python/src/copane/tools/write_file.py: no @agent entry point"
+        }
+      },
+      "sdk_adapter": {
+        "P1": {
+          "status": "UNKNOWN",
+          "reason": "python/src/copane/tools/write_file.py: SDK profile requires one import, tool definition and registration"
+        },
+        "P2": {
+          "status": "UNKNOWN",
+          "reason": "python/src/copane/tools/write_file.py: SDK profile requires one import, tool definition and registration"
+        },
+        "P3": {
+          "status": "UNKNOWN",
+          "reason": "python/src/copane/tools/write_file.py: SDK profile requires one import, tool definition and registration"
+        }
+      }
+    },
+    {
+      "case": "based_agent",
+      "repository": "Kkooops/OpenAI-Based-Agent",
+      "revision": "9bbf71fc70dd266e1d67e5be697eea2e84b4cdf2",
+      "file": "src/tools/write_file_tool.py",
+      "sha256": "aa8dfb7fdf45254a18d4c86058fd804733138f3d0cd00e25fe2dae1da5e1d75b",
+      "original": {
+        "P1": {
+          "status": "UNKNOWN",
+          "reason": "src/tools/write_file_tool.py: no @agent entry point"
+        },
+        "P2": {
+          "status": "UNKNOWN",
+          "reason": "src/tools/write_file_tool.py: no @agent entry point"
+        },
+        "P3": {
+          "status": "UNKNOWN",
+          "reason": "src/tools/write_file_tool.py: no @agent entry point"
+        }
+      },
+      "sdk_adapter": {
+        "P1": {
+          "status": "UNKNOWN",
+          "reason": "src/tools/write_file_tool.py: SDK profile requires one import, tool definition and registration"
+        },
+        "P2": {
+          "status": "UNKNOWN",
+          "reason": "src/tools/write_file_tool.py: SDK profile requires one import, tool definition and registration"
+        },
+        "P3": {
+          "status": "UNKNOWN",
+          "reason": "src/tools/write_file_tool.py: SDK profile requires one import, tool definition and registration"
+        }
+      }
+    }
+  ]
+}
