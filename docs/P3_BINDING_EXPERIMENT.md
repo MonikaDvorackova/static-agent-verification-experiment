@@ -34,7 +34,7 @@ Sources: [CodeQL Python data flow](https://codeql.github.com/docs/codeql-languag
 
 ## Research decision
 
-Current evidence supports a **static capability restriction plus a runtime approval mediator**, provided every critical effect uses the restricted capability and the mediator binds a fresh approval to the exact invocation. This is an architectural hypothesis, not a verified end-to-end implementation. The next decisive test is a typed capability implementation and an SDK mediator with authenticated, atomic consumption, a deliberately separate direct-effect path and changed targets. Record any remaining bypasses and assumptions before considering another analyzer rule. There is presently **no evidence that a new programming language is necessary**. If existing typed subsets plus complete runtime mediation meet P3* under clear assumptions, stop the language proposal.
+Current evidence supports a **static capability restriction plus a runtime approval mediator**, provided every critical effect uses the restricted capability and the mediator binds a fresh approval to the exact invocation. `CAPABILITY_COMPARISON.md` now reports small Scala compiler and SDK effect-ledger probes; they do not establish end-to-end P3*. The remaining decisive test requires an audited, completely mediated real application, an authenticated approval actor and durable atomic effect-side consumption. There is presently **no evidence that a new programming language is necessary**. If existing typed subsets plus complete runtime mediation meet P3* under clear assumptions, stop the language proposal.
 
 ## Offline SDK execution (OpenAI Agents SDK 0.22.3)
 
