@@ -22,6 +22,8 @@ The deliberately narrow API model recognizes `llm`, `external_read`, `user_input
 
 An eight-function Pysa comparison with reproducible models is in `benchmark/pysa/` and `docs/BASELINE_COMPARISON.md`. It covers P1/P2 and a partial P3 approximation. Three unmodified public agent examples are analyzed in `docs/PUBLIC_CODE_EXPERIMENT.md` (all UNKNOWN). `docs/P3_COMPARISON.md` explains the static/runtime authorization boundary.
 
+`benchmark/sdk_cases/` adds an authored 20-case OpenAI Agents SDK-shaped corpus with hand-specified closed-world labels, an experimental AST adapter for one static function-tool form, and a Pysa 0.9.25 comparison using instrumented type-only stubs. Results and the missing CodeQL baseline are explained in `docs/SDK_PROFILE_EXPERIMENT.md`. No real-world false-PROVED rate can be inferred from these authored cases.
+
 For a stronger *modeled* P3 contract, `human_approve_action('payment.execute', validated_value)` binds the approval value to a literal sink name. Using it at another sink produces `VIOLATED`; a computed target produces `UNKNOWN`. This only works under the sealed-contract assumption and does not verify that a human saw the concrete arguments.
 
 ## Important qualifications

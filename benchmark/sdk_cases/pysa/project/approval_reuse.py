@@ -1,0 +1,11 @@
+from agents import Agent, function_tool
+from api import (llm, sensitive_data, validate, human_approve, human_approve_action, authorize_action, external_llm, external_tool, payment, db)
+
+@function_tool(needs_approval=False)
+def action(request: str) -> str:
+    approved = human_approve_action("payment.execute", validate(llm(request)))
+    payment.execute(approved)
+    payment.execute(approved)
+    return "done"
+
+agent = Agent(name="case", tools=[action])

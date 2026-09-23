@@ -1,0 +1,21 @@
+case	P1	P2	P3	rationale
+direct	VIOLATED	PROVED	VIOLATED	LLM flows directly to critical action
+validated	PROVED	PROVED	VIOLATED	Validation alone is no approval
+authorized_raw	VIOLATED	PROVED	PROVED	Approval alone is no validation
+safe_bound	PROVED	PROVED	PROVED	Sealed action bound contract
+sensitive_model	PROVED	VIOLATED	PROVED	Secret at outside model
+sensitive_validated	PROVED	VIOLATED	PROVED	Validation does not remove secrecy
+sensitive_tool	PROVED	VIOLATED	VIOLATED	Tool receives secret without approval
+public_model	PROVED	PROVED	PROVED	Public constant only
+constant_payment	PROVED	PROVED	VIOLATED	Constant action also needs approval
+unrelated_approval	PROVED	PROVED	VIOLATED	Approval does not flow to action
+wrong_action	PROVED	PROVED	VIOLATED	Approved for different action
+right_action	PROVED	PROVED	PROVED	Matching modeled action
+eval	UNKNOWN	UNKNOWN	UNKNOWN	Runtime generated code
+dynamic_target	UNKNOWN	UNKNOWN	UNKNOWN	Dynamic method selection
+monkey_patch	UNKNOWN	UNKNOWN	UNKNOWN	Mutation of modeled sink
+alias_mutation	UNKNOWN	UNKNOWN	UNKNOWN	Mutable approved payload
+callback	UNKNOWN	UNKNOWN	UNKNOWN	Unknown callback may have effects
+approval_reuse	UNKNOWN	UNKNOWN	UNKNOWN	One approval used twice
+sdk_approval_true	VIOLATED	PROVED	VIOLATED	SDK tool invocation approved but nested payment not payload bound
+sdk_approval_false	VIOLATED	PROVED	VIOLATED	SDK tool has no approval gate

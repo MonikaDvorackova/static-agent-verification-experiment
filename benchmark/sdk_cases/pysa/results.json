@@ -1,0 +1,156 @@
+[
+  {
+    "line": 6,
+    "column": 20,
+    "stop_line": 6,
+    "stop_column": 42,
+    "path": "project/validated.py",
+    "code": 6103,
+    "name": "Unapproved payload reaches action",
+    "description": "Unapproved payload reaches action [6103]: Unapproved payload reaches critical action",
+    "define": "validated.action"
+  },
+  {
+    "line": 6,
+    "column": 20,
+    "stop_line": 6,
+    "stop_column": 32,
+    "path": "project/sdk_approval_true.py",
+    "code": 6103,
+    "name": "Unapproved payload reaches action",
+    "description": "Unapproved payload reaches action [6103]: Unapproved payload reaches critical action",
+    "define": "sdk_approval_true.action"
+  },
+  {
+    "line": 6,
+    "column": 20,
+    "stop_line": 6,
+    "stop_column": 32,
+    "path": "project/sdk_approval_false.py",
+    "code": 6103,
+    "name": "Unapproved payload reaches action",
+    "description": "Unapproved payload reaches action [6103]: Unapproved payload reaches critical action",
+    "define": "sdk_approval_false.action"
+  },
+  {
+    "line": 7,
+    "column": 20,
+    "stop_line": 7,
+    "stop_column": 32,
+    "path": "project/monkey_patch.py",
+    "code": 6103,
+    "name": "Unapproved payload reaches action",
+    "description": "Unapproved payload reaches action [6103]: Unapproved payload reaches critical action",
+    "define": "monkey_patch.action"
+  },
+  {
+    "line": 6,
+    "column": 20,
+    "stop_line": 6,
+    "stop_column": 32,
+    "path": "project/direct.py",
+    "code": 6103,
+    "name": "Unapproved payload reaches action",
+    "description": "Unapproved payload reaches action [6103]: Unapproved payload reaches critical action",
+    "define": "direct.action"
+  },
+  {
+    "line": 6,
+    "column": 17,
+    "stop_line": 6,
+    "stop_column": 43,
+    "path": "project/sensitive_validated.py",
+    "code": 6102,
+    "name": "Sensitive reaches external model",
+    "description": "Sensitive reaches external model [6102]: Sensitive data reaches external model",
+    "define": "sensitive_validated.action"
+  },
+  {
+    "line": 6,
+    "column": 18,
+    "stop_line": 6,
+    "stop_column": 34,
+    "path": "project/sensitive_tool.py",
+    "code": 6102,
+    "name": "Sensitive reaches external model",
+    "description": "Sensitive reaches external model [6102]: Sensitive data reaches external model",
+    "define": "sensitive_tool.action"
+  },
+  {
+    "line": 6,
+    "column": 17,
+    "stop_line": 6,
+    "stop_column": 33,
+    "path": "project/sensitive_model.py",
+    "code": 6102,
+    "name": "Sensitive reaches external model",
+    "description": "Sensitive reaches external model [6102]: Sensitive data reaches external model",
+    "define": "sensitive_model.action"
+  },
+  {
+    "line": 6,
+    "column": 20,
+    "stop_line": 6,
+    "stop_column": 32,
+    "path": "project/sdk_approval_true.py",
+    "code": 6101,
+    "name": "LLM reaches privileged sink",
+    "description": "LLM reaches privileged sink [6101]: LLM output reaches privileged action",
+    "define": "sdk_approval_true.action"
+  },
+  {
+    "line": 6,
+    "column": 20,
+    "stop_line": 6,
+    "stop_column": 32,
+    "path": "project/sdk_approval_false.py",
+    "code": 6101,
+    "name": "LLM reaches privileged sink",
+    "description": "LLM reaches privileged sink [6101]: LLM output reaches privileged action",
+    "define": "sdk_approval_false.action"
+  },
+  {
+    "line": 7,
+    "column": 20,
+    "stop_line": 7,
+    "stop_column": 32,
+    "path": "project/monkey_patch.py",
+    "code": 6101,
+    "name": "LLM reaches privileged sink",
+    "description": "LLM reaches privileged sink [6101]: LLM output reaches privileged action",
+    "define": "monkey_patch.action"
+  },
+  {
+    "line": 6,
+    "column": 20,
+    "stop_line": 6,
+    "stop_column": 32,
+    "path": "project/direct.py",
+    "code": 6101,
+    "name": "LLM reaches privileged sink",
+    "description": "LLM reaches privileged sink [6101]: LLM output reaches privileged action",
+    "define": "direct.action"
+  },
+  {
+    "line": 6,
+    "column": 20,
+    "stop_line": 6,
+    "stop_column": 47,
+    "path": "project/authorized_raw.py",
+    "code": 6101,
+    "name": "LLM reaches privileged sink",
+    "description": "LLM reaches privileged sink [6101]: LLM output reaches privileged action",
+    "define": "authorized_raw.action"
+  },
+  {
+    "line": 9,
+    "column": 20,
+    "stop_line": 9,
+    "stop_column": 28,
+    "path": "project/alias_mutation.py",
+    "code": 6101,
+    "name": "LLM reaches privileged sink",
+    "description": "LLM reaches privileged sink [6101]: LLM output reaches privileged action",
+    "define": "alias_mutation.action"
+  }
+]

@@ -1,0 +1,1021 @@
+{
+  "summary": {
+    "cases": 20,
+    "property_decisions": 60,
+    "labeled": {
+      "PROVED": 27,
+      "VIOLATED": 15,
+      "UNKNOWN": 18
+    },
+    "observed": {
+      "PROVED": 0,
+      "VIOLATED": 0,
+      "UNKNOWN": 60
+    },
+    "false_proved_against_labels": 0,
+    "adapted_observed": {
+      "PROVED": 27,
+      "VIOLATED": 15,
+      "UNKNOWN": 18
+    },
+    "adapted_false_proved_against_labels": 0,
+    "adapted_mismatches": 0
+  },
+  "cases": [
+    {
+      "case": "direct",
+      "labels": {
+        "P1": "VIOLATED",
+        "P2": "PROVED",
+        "P3": "VIOLATED"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "VIOLATED",
+        "P2": "PROVED",
+        "P3": "VIOLATED"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/direct.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/direct.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/direct.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/direct.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/direct.py:8: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/direct.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/direct.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/direct.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/direct.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/direct.py:8: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/direct.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/direct.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/direct.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/direct.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/direct.py:8: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/direct.py:3: unvalidated LLM output reaches payment.execute"
+        ],
+        "P2": [],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/direct.py:3: critical action payment.execute lacks payload-bound authorization"
+        ]
+      }
+    },
+    {
+      "case": "validated",
+      "labels": {
+        "P1": "PROVED",
+        "P2": "PROVED",
+        "P3": "VIOLATED"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "PROVED",
+        "P2": "PROVED",
+        "P3": "VIOLATED"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/validated.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/validated.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/validated.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/validated.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/validated.py:8: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/validated.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/validated.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/validated.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/validated.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/validated.py:8: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/validated.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/validated.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/validated.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/validated.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/validated.py:8: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [],
+        "P2": [],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/validated.py:3: critical action payment.execute lacks payload-bound authorization"
+        ]
+      }
+    },
+    {
+      "case": "authorized_raw",
+      "labels": {
+        "P1": "VIOLATED",
+        "P2": "PROVED",
+        "P3": "PROVED"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "VIOLATED",
+        "P2": "PROVED",
+        "P3": "PROVED"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/authorized_raw.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/authorized_raw.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/authorized_raw.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/authorized_raw.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/authorized_raw.py:8: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/authorized_raw.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/authorized_raw.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/authorized_raw.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/authorized_raw.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/authorized_raw.py:8: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/authorized_raw.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/authorized_raw.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/authorized_raw.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/authorized_raw.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/authorized_raw.py:8: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/authorized_raw.py:3: unvalidated LLM output reaches payment.execute"
+        ],
+        "P2": [],
+        "P3": []
+      }
+    },
+    {
+      "case": "safe_bound",
+      "labels": {
+        "P1": "PROVED",
+        "P2": "PROVED",
+        "P3": "PROVED"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "PROVED",
+        "P2": "PROVED",
+        "P3": "PROVED"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/safe_bound.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/safe_bound.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/safe_bound.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/safe_bound.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/safe_bound.py:8: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/safe_bound.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/safe_bound.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/safe_bound.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/safe_bound.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/safe_bound.py:8: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/safe_bound.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/safe_bound.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/safe_bound.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/safe_bound.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/safe_bound.py:8: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [],
+        "P2": [],
+        "P3": []
+      }
+    },
+    {
+      "case": "sensitive_model",
+      "labels": {
+        "P1": "PROVED",
+        "P2": "VIOLATED",
+        "P3": "PROVED"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "PROVED",
+        "P2": "VIOLATED",
+        "P3": "PROVED"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_model.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_model.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_model.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_model.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_model.py:8: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_model.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_model.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_model.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_model.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_model.py:8: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_model.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_model.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_model.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_model.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_model.py:8: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_model.py:3: sensitive data reaches unauthorized external_llm"
+        ],
+        "P3": []
+      }
+    },
+    {
+      "case": "sensitive_validated",
+      "labels": {
+        "P1": "PROVED",
+        "P2": "VIOLATED",
+        "P3": "PROVED"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "PROVED",
+        "P2": "VIOLATED",
+        "P3": "PROVED"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_validated.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_validated.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_validated.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_validated.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_validated.py:8: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_validated.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_validated.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_validated.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_validated.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_validated.py:8: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_validated.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_validated.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_validated.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_validated.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_validated.py:8: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_validated.py:3: sensitive data reaches unauthorized external_llm"
+        ],
+        "P3": []
+      }
+    },
+    {
+      "case": "sensitive_tool",
+      "labels": {
+        "P1": "PROVED",
+        "P2": "VIOLATED",
+        "P3": "VIOLATED"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "PROVED",
+        "P2": "VIOLATED",
+        "P3": "VIOLATED"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_tool.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_tool.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_tool.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_tool.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_tool.py:8: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_tool.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_tool.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_tool.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_tool.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_tool.py:8: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_tool.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_tool.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_tool.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_tool.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_tool.py:8: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_tool.py:3: sensitive data reaches unauthorized external_tool"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sensitive_tool.py:3: critical action external_tool lacks payload-bound authorization"
+        ]
+      }
+    },
+    {
+      "case": "public_model",
+      "labels": {
+        "P1": "PROVED",
+        "P2": "PROVED",
+        "P3": "PROVED"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "PROVED",
+        "P2": "PROVED",
+        "P3": "PROVED"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/public_model.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/public_model.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/public_model.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/public_model.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/public_model.py:8: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/public_model.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/public_model.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/public_model.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/public_model.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/public_model.py:8: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/public_model.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/public_model.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/public_model.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/public_model.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/public_model.py:8: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [],
+        "P2": [],
+        "P3": []
+      }
+    },
+    {
+      "case": "constant_payment",
+      "labels": {
+        "P1": "PROVED",
+        "P2": "PROVED",
+        "P3": "VIOLATED"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "PROVED",
+        "P2": "PROVED",
+        "P3": "VIOLATED"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/constant_payment.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/constant_payment.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/constant_payment.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/constant_payment.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/constant_payment.py:8: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/constant_payment.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/constant_payment.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/constant_payment.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/constant_payment.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/constant_payment.py:8: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/constant_payment.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/constant_payment.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/constant_payment.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/constant_payment.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/constant_payment.py:8: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [],
+        "P2": [],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/constant_payment.py:3: critical action payment.execute lacks payload-bound authorization"
+        ]
+      }
+    },
+    {
+      "case": "unrelated_approval",
+      "labels": {
+        "P1": "PROVED",
+        "P2": "PROVED",
+        "P3": "VIOLATED"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "PROVED",
+        "P2": "PROVED",
+        "P3": "VIOLATED"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/unrelated_approval.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/unrelated_approval.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/unrelated_approval.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/unrelated_approval.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/unrelated_approval.py:9: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/unrelated_approval.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/unrelated_approval.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/unrelated_approval.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/unrelated_approval.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/unrelated_approval.py:9: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/unrelated_approval.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/unrelated_approval.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/unrelated_approval.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/unrelated_approval.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/unrelated_approval.py:9: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [],
+        "P2": [],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/unrelated_approval.py:4: critical action payment.execute lacks payload-bound authorization"
+        ]
+      }
+    },
+    {
+      "case": "wrong_action",
+      "labels": {
+        "P1": "PROVED",
+        "P2": "PROVED",
+        "P3": "VIOLATED"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "PROVED",
+        "P2": "PROVED",
+        "P3": "VIOLATED"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/wrong_action.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/wrong_action.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/wrong_action.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/wrong_action.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/wrong_action.py:8: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/wrong_action.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/wrong_action.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/wrong_action.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/wrong_action.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/wrong_action.py:8: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/wrong_action.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/wrong_action.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/wrong_action.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/wrong_action.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/wrong_action.py:8: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [],
+        "P2": [],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/wrong_action.py:3: approval for db.mutate used at payment.execute"
+        ]
+      }
+    },
+    {
+      "case": "right_action",
+      "labels": {
+        "P1": "PROVED",
+        "P2": "PROVED",
+        "P3": "PROVED"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "PROVED",
+        "P2": "PROVED",
+        "P3": "PROVED"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/right_action.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/right_action.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/right_action.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/right_action.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/right_action.py:8: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/right_action.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/right_action.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/right_action.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/right_action.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/right_action.py:8: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/right_action.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/right_action.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/right_action.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/right_action.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/right_action.py:8: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [],
+        "P2": [],
+        "P3": []
+      }
+    },
+    {
+      "case": "eval",
+      "labels": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py:8: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py:8: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py:8: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py:3: dynamic call or dispatch: eval"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py:3: dynamic call or dispatch: eval"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/eval.py:3: dynamic call or dispatch: eval"
+        ]
+      }
+    },
+    {
+      "case": "dynamic_target",
+      "labels": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:9: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:9: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:9: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:3: dynamic call or dispatch: getattr",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:4: unresolved call: tool"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:3: dynamic call or dispatch: getattr",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:4: unresolved call: tool"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:3: dynamic call or dispatch: getattr",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/dynamic_target.py:4: unresolved call: tool"
+        ]
+      }
+    },
+    {
+      "case": "monkey_patch",
+      "labels": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:5: modeled API name may be rebound or monkey patched",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:9: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:5: modeled API name may be rebound or monkey patched",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:9: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:5: modeled API name may be rebound or monkey patched",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:9: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:3: modeled API name may be rebound or monkey patched",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:3: mutation or aliasing through complex assignment"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:3: modeled API name may be rebound or monkey patched",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:3: mutation or aliasing through complex assignment"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:3: modeled API name may be rebound or monkey patched",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/monkey_patch.py:3: mutation or aliasing through complex assignment"
+        ]
+      }
+    },
+    {
+      "case": "alias_mutation",
+      "labels": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py:11: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py:4: unknown decorator on action"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py:11: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py:4: unknown decorator on action"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py:11: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py:4: unknown decorator on action"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py:5: mutation or aliasing through complex assignment"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py:5: mutation or aliasing through complex assignment"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/alias_mutation.py:5: mutation or aliasing through complex assignment"
+        ]
+      }
+    },
+    {
+      "case": "callback",
+      "labels": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py:8: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py:8: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py:8: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py:3: unresolved call: request"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py:3: unresolved call: request"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/callback.py:3: unresolved call: request"
+        ]
+      }
+    },
+    {
+      "case": "approval_reuse",
+      "labels": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py:10: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py:4: unknown decorator on action"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py:10: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py:4: unknown decorator on action"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py:10: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py:4: unknown decorator on action"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py:5: authorization result reused for another critical action"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py:5: authorization result reused for another critical action"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/approval_reuse.py:5: authorization result reused for another critical action"
+        ]
+      }
+    },
+    {
+      "case": "sdk_approval_true",
+      "labels": {
+        "P1": "VIOLATED",
+        "P2": "PROVED",
+        "P3": "VIOLATED"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "VIOLATED",
+        "P2": "PROVED",
+        "P3": "VIOLATED"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_true.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_true.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_true.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_true.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_true.py:8: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_true.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_true.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_true.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_true.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_true.py:8: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_true.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_true.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_true.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_true.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_true.py:8: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_true.py:3: unvalidated LLM output reaches payment.execute"
+        ],
+        "P2": [],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_true.py:3: critical action payment.execute lacks payload-bound authorization"
+        ]
+      }
+    },
+    {
+      "case": "sdk_approval_false",
+      "labels": {
+        "P1": "VIOLATED",
+        "P2": "PROVED",
+        "P3": "VIOLATED"
+      },
+      "observed": {
+        "P1": "UNKNOWN",
+        "P2": "UNKNOWN",
+        "P3": "UNKNOWN"
+      },
+      "adapted": {
+        "P1": "VIOLATED",
+        "P2": "PROVED",
+        "P3": "VIOLATED"
+      },
+      "reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_false.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_false.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_false.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_false.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_false.py:8: module initialization or mutation not modeled"
+        ],
+        "P2": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_false.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_false.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_false.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_false.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_false.py:8: module initialization or mutation not modeled"
+        ],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_false.py: no @agent entry point",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_false.py:1: module initialization or mutation not modeled",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_false.py:4: runtime annotation semantics not modeled: action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_false.py:4: unknown decorator on action",
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_false.py:8: module initialization or mutation not modeled"
+        ]
+      },
+      "adapted_reasons": {
+        "P1": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_false.py:3: unvalidated LLM output reaches payment.execute"
+        ],
+        "P2": [],
+        "P3": [
+          "/workspace/scratch/f829556fa38b/benchmark/sdk_cases/cases/sdk_approval_false.py:3: critical action payment.execute lacks payload-bound authorization"
+        ]
+      }
+    }
+  ]
+}
