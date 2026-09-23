@@ -1,0 +1,19 @@
+{
+  "codeql_cli": "2.27.1",
+  "library_revision": "03cccfe9a77c67c349d1ec557c9959b0ab5cd739",
+  "source_revision": "ff54396e575ee6feb0113b631a34caa082b441cc",
+  "results": [
+    {
+      "rule_id": "research/openkb-tool-argument-to-write",
+      "source": {
+        "file": "openkb/agent/query.py",
+        "line": 237
+      },
+      "sink": {
+        "file": "openkb/agent/query.py",
+        "line": 251
+      },
+      "message": "The SDK tool content parameter can reach this write helper call from [tool-supplied content](1)."
+    }
+  ]
+}

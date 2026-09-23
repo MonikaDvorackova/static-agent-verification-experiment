@@ -1,0 +1,3 @@
+case	location	observed_path	P1	P2	P3	reason
+chat_write	openkb/agent/query.py:236-251; openkb/agent/tools.py:214-255	SDK tool content argument -> write_kb_file -> atomic_write_text	VIOLATED_CONDITIONAL	UNKNOWN	UNKNOWN	Assuming model-generated tool arguments are untrusted and filesystem write is a privileged sink, no semantic content validation appears on this path; path confinement is present; sensitivity of content and action-approval semantics remain unresolved.
+query_read	openkb/agent/query.py:67-120	read_file/get_page_content/get_image -> agent model context	UNKNOWN	UNKNOWN	UNKNOWN	External content can reach a model, but it is not classified as sensitive; no critical write is in this selected read-tool path; closed-world coverage is not established.

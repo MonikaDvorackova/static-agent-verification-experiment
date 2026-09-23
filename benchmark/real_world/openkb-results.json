@@ -1,0 +1,156 @@
+{
+  "repository": "VectifyAI/OpenKB",
+  "revision": "ff54396e575ee6feb0113b631a34caa082b441cc",
+  "files": [
+    {
+      "path": "openkb/agent/query.py",
+      "sha256": "cec427a29b0e9eeaf803fda2de79767ec35143e369fb2086df5f35901b7b048b",
+      "original": {
+        "P1": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/agent/query.py: no @agent entry point",
+            "openkb/agent/query.py:10: module initialization or mutation not modeled",
+            "openkb/agent/query.py:126: runtime annotation semantics not modeled: _resolve_tool_call_id"
+          ]
+        },
+        "P2": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/agent/query.py: no @agent entry point",
+            "openkb/agent/query.py:10: module initialization or mutation not modeled",
+            "openkb/agent/query.py:126: runtime annotation semantics not modeled: _resolve_tool_call_id"
+          ]
+        },
+        "P3": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/agent/query.py: no @agent entry point",
+            "openkb/agent/query.py:10: module initialization or mutation not modeled",
+            "openkb/agent/query.py:126: runtime annotation semantics not modeled: _resolve_tool_call_id"
+          ]
+        }
+      },
+      "sdk_adapter": {
+        "P1": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/agent/query.py: SDK profile requires one import, tool definition and registration"
+          ]
+        },
+        "P2": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/agent/query.py: SDK profile requires one import, tool definition and registration"
+          ]
+        },
+        "P3": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/agent/query.py: SDK profile requires one import, tool definition and registration"
+          ]
+        }
+      }
+    },
+    {
+      "path": "openkb/agent/tools.py",
+      "sha256": "55718d52af4716a512ae0fd89952cc8bf2138bf0ef9cd98cf3999a07c1f57aeb",
+      "original": {
+        "P1": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/agent/tools.py: no @agent entry point",
+            "openkb/agent/tools.py:10: module initialization or mutation not modeled",
+            "openkb/agent/tools.py:11: module initialization or mutation not modeled"
+          ]
+        },
+        "P2": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/agent/tools.py: no @agent entry point",
+            "openkb/agent/tools.py:10: module initialization or mutation not modeled",
+            "openkb/agent/tools.py:11: module initialization or mutation not modeled"
+          ]
+        },
+        "P3": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/agent/tools.py: no @agent entry point",
+            "openkb/agent/tools.py:10: module initialization or mutation not modeled",
+            "openkb/agent/tools.py:11: module initialization or mutation not modeled"
+          ]
+        }
+      },
+      "sdk_adapter": {
+        "P1": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/agent/tools.py: SDK profile requires one import, tool definition and registration"
+          ]
+        },
+        "P2": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/agent/tools.py: SDK profile requires one import, tool definition and registration"
+          ]
+        },
+        "P3": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/agent/tools.py: SDK profile requires one import, tool definition and registration"
+          ]
+        }
+      }
+    },
+    {
+      "path": "openkb/locks.py",
+      "sha256": "42d24bd9aa7da9f430a8bde5e3d1d90312742c57afb88000a15fcff041c4aa0b",
+      "original": {
+        "P1": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/locks.py: no @agent entry point",
+            "openkb/locks.py:102: runtime annotation semantics not modeled: _drain_pending_journals",
+            "openkb/locks.py:11: module initialization or mutation not modeled"
+          ]
+        },
+        "P2": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/locks.py: no @agent entry point",
+            "openkb/locks.py:102: runtime annotation semantics not modeled: _drain_pending_journals",
+            "openkb/locks.py:11: module initialization or mutation not modeled"
+          ]
+        },
+        "P3": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/locks.py: no @agent entry point",
+            "openkb/locks.py:102: runtime annotation semantics not modeled: _drain_pending_journals",
+            "openkb/locks.py:11: module initialization or mutation not modeled"
+          ]
+        }
+      },
+      "sdk_adapter": {
+        "P1": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/locks.py: SDK profile requires one import, tool definition and registration"
+          ]
+        },
+        "P2": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/locks.py: SDK profile requires one import, tool definition and registration"
+          ]
+        },
+        "P3": {
+          "status": "UNKNOWN",
+          "reasons": [
+            "openkb/locks.py: SDK profile requires one import, tool definition and registration"
+          ]
+        }
+      }
+    }
+  ]
+}
