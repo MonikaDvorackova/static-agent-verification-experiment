@@ -2,6 +2,8 @@
 
 P3 in this experiment is a syntactic value-flow rule: a modeled critical action must consume a value returned by a trusted approval/authorization boundary. It is not proof that a human saw the intended target, amount or recipient. The prototype now treats reuse of one approval result across two critical actions as UNKNOWN and considers post-approval validation a new, unapproved payload. It flags a constant critical action as VIOLATED; string concatenation after approval is UNKNOWN because Python may overload the operation. Neither check proves nonforgeability of the boundary.
 
+An additional controlled experiment uses `human_approve_action('payment.execute', payload)`. A matching call is PROVED under the sealed-contract premise, a call to a different modeled sink is VIOLATED, and an approval target supplied dynamically is UNKNOWN. Distinct approval values combined into one sink argument are UNKNOWN. This is a nominal action binding in the abstract model; the prototype does not compare actual amount, recipient, request context or expiry. Ordinary Python cannot authenticate who issued the approval simply by recognizing a function name.
+
 Three approaches can capture different parts of the requirement:
 
 | Approach | Can statically detect | Missing assumption or limitation |

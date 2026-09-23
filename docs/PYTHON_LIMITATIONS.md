@@ -31,3 +31,5 @@ def hidden(x=payment.execute(llm("buy"))):
 ```
 
 The prototype returns UNKNOWN for these implicit, reuse and definition-time cases. Runtime annotations, descriptors, overloaded operators and framework import/decorator behavior also force UNKNOWN. The public-framework experiment in `PUBLIC_CODE_EXPERIMENT.md` yielded 9/9 UNKNOWN. The Pysa configuration in `BASELINE_COMPARISON.md` missed a constant critical action and an argument changed after approval; those are limitations of that specific rule, not proof that all existing static tools must miss them.
+
+The action-target experiment adds a narrow proof under a stipulated, sealed `human_approve_action` contract. A Python function with that name can still ignore its first argument or be replaced at runtime; ordinary source inspection cannot establish the boundary implementation. Even a genuine approval for `payment.execute` does not establish that a human approved the actual amount and recipient if they live in mutable objects. A complete implementation must mediate the effect and bind an immutable snapshot of the arguments to the approval.

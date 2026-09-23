@@ -23,6 +23,7 @@ class FixtureTests(unittest.TestCase):
             ('unknown/implicit_flow.py', 'dynamic truthiness'),
             ('unknown/approval_reuse.py', 'authorization result reused'),
             ('unknown/function_default.py', 'function default expression'),
+            ('unknown/dynamic_approval_target.py', 'approval action must be a literal'),
         ):
             with self.subTest(fixture):
                 source = (ROOT / fixture).read_text()

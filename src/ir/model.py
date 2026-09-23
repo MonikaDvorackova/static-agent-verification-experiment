@@ -36,6 +36,7 @@ class Value:
     unknown: bool = False
     effects: frozenset[str] = frozenset()
     approval_id: int | None = None
+    approval_target: str | None = None
 
     @property
     def trust(self) -> Trust:
@@ -51,8 +52,11 @@ class Value:
     def combine(self, other: Value) -> Value:
         return Value(self.origins | other.origins, self.sensitive or other.sensitive,
                      self.validated and other.validated, self.approved and other.approved,
-                     self.unknown or other.unknown, self.effects | other.effects,
-                     self.approval_id if self.approval_id == other.approval_id else None)
+                     self.unknown or other.unknown or (self.approved and other.approved and
+                     (self.approval_id != other.approval_id or self.approval_target != other.approval_target)),
+                     self.effects | other.effects,
+                     self.approval_id if self.approval_id == other.approval_id else None,
+                     self.approval_target if self.approval_target == other.approval_target else None)
 
 @dataclass
 class State:

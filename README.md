@@ -7,7 +7,7 @@ python -m src tests/unsafe/direct.py
 python -m unittest discover -s tests -v
 ```
 
-The deliberately narrow API model recognizes `llm`, `external_read`, `user_input`, `sensitive_data`, `validate`, `sanitize`, `authorize`, `human_approve`, `external_llm`, `external_tool`, `fs.write`, `db.mutate`, and `payment.execute`. A label `PROVED` only describes paths in the modeled subset **assuming these names resolve to sealed, audited contracts**. Ordinary Python does not seal names; do not use these results to authorize real operations. Unknown dynamic behavior produces a location and reason. The current engine is a path-sensitive interpreter over AST-backed IR, not a general CFG construction, SSA compiler, or whole-program proof system.
+The deliberately narrow API model recognizes `llm`, `external_read`, `user_input`, `sensitive_data`, `validate`, `sanitize`, `authorize`, `human_approve`, `authorize_action`, `human_approve_action`, `external_llm`, `external_tool`, `fs.write`, `db.mutate`, and `payment.execute`. A label `PROVED` only describes paths in the modeled subset **assuming these names resolve to sealed, audited contracts**. Ordinary Python does not seal names; do not use these results to authorize real operations. Unknown dynamic behavior produces a location and reason. The current engine is a path-sensitive interpreter over AST-backed IR, not a general CFG construction, SSA compiler, or whole-program proof system.
 
 ## Layout
 
@@ -18,9 +18,11 @@ The deliberately narrow API model recognizes `llm`, `external_read`, `user_input
 - `src/analysis/`: path traversal, calls, labels and decisions.
 - `src/policies/`: modeled API contracts.
 - `src/diagnostics/`: result records.
-- `tests/safe`, `tests/unsafe`, `tests/unknown`: twenty-four documented adversarial fixtures; `tests/expectations.tsv` gives per-property outcomes.
+- `tests/safe`, `tests/unsafe`, `tests/unknown`: twenty-eight documented adversarial fixtures; `tests/expectations.tsv` gives per-property outcomes.
 
 An eight-function Pysa comparison with reproducible models is in `benchmark/pysa/` and `docs/BASELINE_COMPARISON.md`. It covers P1/P2 and a partial P3 approximation. Three unmodified public agent examples are analyzed in `docs/PUBLIC_CODE_EXPERIMENT.md` (all UNKNOWN). `docs/P3_COMPARISON.md` explains the static/runtime authorization boundary.
+
+For a stronger *modeled* P3 contract, `human_approve_action('payment.execute', validated_value)` binds the approval value to a literal sink name. Using it at another sink produces `VIOLATED`; a computed target produces `UNKNOWN`. This only works under the sealed-contract assumption and does not verify that a human saw the concrete arguments.
 
 ## Important qualifications
 

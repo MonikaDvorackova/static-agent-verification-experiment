@@ -54,14 +54,23 @@ class Analyzer:
             return Value(data.origins | {kind}, data.sensitive or kind == 'local-sensitive',
                          unknown=data.unknown, effects=data.effects | ({'LLM_CALL'} if target == 'llm' else {'EXTERNAL_READ'} if target == 'external_read' else set()))
         if target in BOUNDARIES:
-            if len(args) != 1:
-                state.uncertainty.append(self.reason(node, f'{target} requires exactly one payload'))
+            action_bound = BOUNDARIES[target] == 'action_authorization'
+            if len(args) != (2 if action_bound else 1):
+                state.uncertainty.append(self.reason(node, f'{target} requires an action literal and payload' if action_bound else f'{target} requires exactly one payload'))
                 return Value(data.origins, data.sensitive, unknown=True)
-            return Value(data.origins, data.sensitive,
-                         data.validated or BOUNDARIES[target] == 'validation',
-                         BOUNDARIES[target] == 'authorization', data.unknown,
-                         data.effects | ({'HUMAN_APPROVAL'} if target == 'human_approve' else set()),
-                         id(node) if BOUNDARIES[target] == 'authorization' else None)
+            action = node.args[0] if action_bound else None
+            if action_bound and (not isinstance(action, ast.Constant) or
+                                 not isinstance(action.value, str) or action.value not in SINKS):
+                state.uncertainty.append(self.reason(node, 'approval action must be a literal modeled sink'))
+                return Value(data.origins, data.sensitive, unknown=True)
+            payload = args[-1]
+            authorization = BOUNDARIES[target] in ('authorization', 'action_authorization')
+            return Value(payload.origins, payload.sensitive,
+                         payload.validated or BOUNDARIES[target] == 'validation',
+                         authorization, payload.unknown,
+                         payload.effects | ({'HUMAN_APPROVAL'} if target.startswith('human_approve') else set()),
+                         id(node) if authorization else None,
+                         action.value if action_bound else None)
         if target in SINKS:
             if not args:
                 state.uncertainty.append(self.reason(node, f'{target} has no modeled payload'))
@@ -73,6 +82,8 @@ class Analyzer:
                         state.findings.append((prop, self.reason(node, f'sensitive data reaches unauthorized {target}')))
                     if prop == 'P3' and not data.approved:
                         state.findings.append((prop, self.reason(node, f'critical action {target} lacks payload-bound authorization')))
+                    if prop == 'P3' and data.approved and data.approval_target is not None and data.approval_target != target:
+                        state.findings.append((prop, self.reason(node, f'approval for {data.approval_target} used at {target}')))
                 if 'P3' in SINKS[target] and data.approved:
                     if data.approval_id is None:
                         state.uncertainty.append(self.reason(node, 'approval identity lost during data combination'))

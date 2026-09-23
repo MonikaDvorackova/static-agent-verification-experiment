@@ -22,4 +22,8 @@ safe/unreachable_branch.py	PROVED	PROVED	PROVED	constant false branch unreachabl
 unsafe/validate_after_approval.py	PROVED	PROVED	VIOLATED	validation can change payload after approval
 unknown/approval_reuse.py	UNKNOWN	UNKNOWN	UNKNOWN	one approval result used for two actions
 unsafe/constant_action.py	PROVED	PROVED	VIOLATED	constant critical action still requires approval
+safe/action_bound.py	PROVED	PROVED	PROVED	modeled action literal matches modeled sink under sealed-contract premise
+unsafe/wrong_action.py	PROVED	PROVED	VIOLATED	approval names another critical action
+unknown/dynamic_approval_target.py	UNKNOWN	UNKNOWN	UNKNOWN	action target cannot be resolved statically
+unknown/mixed_approvals.py	UNKNOWN	UNKNOWN	UNKNOWN	combining distinct approval identities loses precise authorization provenance
 unknown/modified_after_approval.py	UNKNOWN	UNKNOWN	UNKNOWN	overloaded concatenation and modified payload
