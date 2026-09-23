@@ -28,6 +28,10 @@ An eight-function Pysa comparison with reproducible models is in `benchmark/pysa
 
 `docs/MULTI_PROJECT_BENCHMARK.md` extends the selected-path evaluation to three pinned public agent projects. Our analyzer and SDK adapter return UNKNOWN on all three unchanged modules; narrow CodeQL queries find two direct file-write flows and one scheduling edge. The manual labels are conditional and not independent ground truth; no production safety claim or real-world Pysa accuracy estimate follows.
 
+`docs/P3_BINDING_EXPERIMENT.md` specifies the stronger, concrete-action P3* requirement and records six reproducible probes (`python -m benchmark.p3_binding.run`). A modeled P3 `PROVED` result does not establish authentic, fresh, single-use approval for an actual effect.
+
+An optional offline SDK experiment (`python -m benchmark.p3_binding.sdk_probe`) runs with `openai-agents==0.22.3` and tests rejection, approval and restoring the same approved state twice. See `docs/P3_BINDING_EXPERIMENT.md` for its exact scope and results.
+
 For a stronger *modeled* P3 contract, `human_approve_action('payment.execute', validated_value)` binds the approval value to a literal sink name. Using it at another sink produces `VIOLATED`; a computed target produces `UNKNOWN`. This only works under the sealed-contract assumption and does not verify that a human saw the concrete arguments.
 
 ## Important qualifications
