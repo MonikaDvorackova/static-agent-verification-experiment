@@ -32,6 +32,8 @@ An eight-function Pysa comparison with reproducible models is in `benchmark/pysa
 
 An optional offline SDK experiment (`python -m benchmark.p3_binding.sdk_probe`) runs with `openai-agents==0.22.3` and tests rejection, approval and restoring the same approved state twice. See `docs/P3_BINDING_EXPERIMENT.md` for its exact scope and results.
 
+`docs/CAPABILITY_COMPARISON.md` reports a Scala 3.9.0 safe-mode compile experiment and an offline SDK effect-ledger comparison. These establish scoped compiler and runtime observations, not a P3* proof. Reproduce with `python -m benchmark.p3_binding.scala.run_scala` (Scala CLI 1.17.1) and, in the SDK environment, `python -m benchmark.p3_binding.idempotent_probe`.
+
 For a stronger *modeled* P3 contract, `human_approve_action('payment.execute', validated_value)` binds the approval value to a literal sink name. Using it at another sink produces `VIOLATED`; a computed target produces `UNKNOWN`. This only works under the sealed-contract assumption and does not verify that a human saw the concrete arguments.
 
 ## Important qualifications

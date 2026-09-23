@@ -17,3 +17,7 @@ class OfflineSDKProbeTests(unittest.IsolatedAsyncioTestCase):
                          (2, [{'recipient': 'Alice', 'amount': 10}] * 2))
         self.assertEqual(await altered_snapshot_case(),
                          ([{'recipient': 'Alice', 'amount': 10}], 'resumed'))
+
+    async def test_app_ledger_prevents_duplicate_resumes_but_allows_direct_bypass(self):
+        from benchmark.p3_binding.idempotent_probe import run
+        self.assertEqual(await run(), (1, True, 2))
