@@ -36,6 +36,8 @@ An optional offline SDK experiment (`python -m benchmark.p3_binding.sdk_probe`) 
 
 `docs/REAL_APP_EFFECT_MEDIATION.md` analyzes one pinned real agent app: a registered shell tool can write a temporary file without SDK approval, while the app's dedicated file-write tool pauses. The conditional result applies to an explicitly analyst-defined all-agent-file-writes policy; the application's intended global policy and whole-project P3* remain UNKNOWN. Reproduce with `python -m benchmark.real_world.copane_approval_path /path/to/pinned/copane` in the SDK environment.
 
+**Research decision:** [RESEARCH_CONCLUSION.md](docs/RESEARCH_CONCLUSION.md) closes this bounded phase. The observations do not justify a new language or unconditional verification of ordinary Python; current next step is independent review and a carefully qualified article, not more synthetic analyzer rules.
+
 For a stronger *modeled* P3 contract, `human_approve_action('payment.execute', validated_value)` binds the approval value to a literal sink name. Using it at another sink produces `VIOLATED`; a computed target produces `UNKNOWN`. This only works under the sealed-contract assumption and does not verify that a human saw the concrete arguments.
 
 ## Important qualifications
