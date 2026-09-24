@@ -34,3 +34,5 @@ For the third project's scheduling edge, run `ToolContentToThreadedWrite.ql` aga
 ## Research decision
 
 The current Python AST prototype makes **zero** property decisions on these three selected real modules. Specialized CodeQL queries establish two real direct flows and one scheduled-helper edge. This supports prioritizing framework models and comparison with existing analysis tools over adding another ad hoc rule or new language syntax. It does **not** show that CodeQL can prove P1–P3 for arbitrary agent applications, nor that a new language is needed. A future larger evaluation should require independently reviewed path labels and count wrong `PROVED` results only when the target property and trusted contracts are specified in advance.
+
+A later, separately scoped experiment in `REAL_APP_EFFECT_MEDIATION.md` runs two of Copane's pinned tools offline. It demonstrates a concrete shell-based write without an approval interruption under an **analyst-defined** all-agent-file-writes policy. It does not change this benchmark's whole-module UNKNOWN verdict or establish the project's intended global P3 policy.
