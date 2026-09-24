@@ -34,6 +34,8 @@ An optional offline SDK experiment (`python -m benchmark.p3_binding.sdk_probe`) 
 
 `docs/CAPABILITY_COMPARISON.md` reports a Scala 3.9.0 safe-mode compile experiment and an offline SDK effect-ledger comparison. These establish scoped compiler and runtime observations, not a P3* proof. Reproduce with `python -m benchmark.p3_binding.scala.run_scala` (Scala CLI 1.17.1) and, in the SDK environment, `python -m benchmark.p3_binding.idempotent_probe`.
 
+`docs/REAL_APP_EFFECT_MEDIATION.md` analyzes one pinned real agent app: a registered shell tool can write a temporary file without SDK approval, while the app's dedicated file-write tool pauses. The conditional result applies to an explicitly analyst-defined all-agent-file-writes policy; the application's intended global policy and whole-project P3* remain UNKNOWN. Reproduce with `python -m benchmark.real_world.copane_approval_path /path/to/pinned/copane` in the SDK environment.
+
 For a stronger *modeled* P3 contract, `human_approve_action('payment.execute', validated_value)` binds the approval value to a literal sink name. Using it at another sink produces `VIOLATED`; a computed target produces `UNKNOWN`. This only works under the sealed-contract assumption and does not verify that a human saw the concrete arguments.
 
 ## Important qualifications
